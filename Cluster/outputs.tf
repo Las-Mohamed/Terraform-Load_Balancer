@@ -13,3 +13,7 @@ output "motdepasse" {
   value = azurerm_linux_virtual_machine.vm[0].admin_password
   sensitive = true
 }
+
+output "tenant" {
+  value = data.azurerm_client_config.current.tenant_id
+}

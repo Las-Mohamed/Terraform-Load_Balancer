@@ -55,7 +55,7 @@ resource "azurerm_lb_rule" "Lbrule" {
   protocol                       = "Tcp"
   frontend_port                  = 80
   backend_port                   = 80
-  frontend_ip_configuration_name = "PublicIPAddress
+  frontend_ip_configuration_name = "PublicIPAddress"
   probe_id                       = azurerm_lb_probe.probe.id
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.Bckpool.id]
 }
@@ -71,21 +71,21 @@ resource "azurerm_lb_rule" "Lbrule" {
 #  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration[0].name
 #}
 
-#        Redirect traffic comming from port 2222(LB) or 2223(LB) to port 22(VM)
-#                 resource "azurerm_lb_nat_rule" "nat_rule" {
-#                   count                          = 2
-#                   resource_group_name            = azurerm_resource_group.kube.name
-#                   loadbalancer_id                = azurerm_lb.klb.id
-#                   name                           = "SSHAccess${count.index}"
-#                   protocol                       = "Tcp"
-#                   frontend_port                  = 222 + count.index
-#                   backend_port                   = 22
-#                   frontend_ip_configuration_name = "publicIPAddress"
-#                 }
+# Redirect traffic comming from port 2222(LB) or 2223(LB) to port 22(VM)
+#resource "azurerm_lb_nat_rule" "nat_rule" {
+#  count                          = 2
+#  resource_group_name            = azurerm_resource_group.kube.name
+#  loadbalancer_id                = azurerm_lb.klb.id
+#  name                           = "SSHAccess${count.index}"
+#  protocol                       = "Tcp"
+#  frontend_port                  = 222 + count.index
+#  backend_port                   = 22
+#  frontend_ip_configuration_name = "publicIPAddress"
+#}
 
-#                 resource "azurerm_network_interface_nat_rule_association" "natrules_association" {
-#                   count                 = 2
-#                   network_interface_id  = azurerm_network_interface.nic[count.index].id
-#                   ip_configuration_name = "Config"
-#                   nat_rule_id           = azurerm_lb_nat_rule.nat_rule.id
-#                 }
+#resource "azurerm_network_interface_nat_rule_association" "natrules_association" {
+#  count                 = 2
+#  network_interface_id  = azurerm_network_interface.nic[count.index].id
+#  ip_configuration_name = "Config"
+#  nat_rule_id           = azurerm_lb_nat_rule.nat_rule[count.index].id
+#}
