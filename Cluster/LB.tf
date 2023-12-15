@@ -12,7 +12,7 @@ resource "azurerm_public_ip" "IP_Pub" {
   name = "Ip-Pub-Load-Balancer"
   location = var.location
   resource_group_name = azurerm_resource_group.rg.name
-  allocation_method = "Dynamic"
+  allocation_method = "Static"
   sku = "Standard"
 
   depends_on = [azurerm_resource_group.rg]
@@ -38,7 +38,7 @@ resource "azurerm_lb_backend_address_pool" "Bckpool" {
 resource "azurerm_network_interface_backend_address_pool_association" "nic_association" {
   count                   = 2
   backend_address_pool_id = azurerm_lb_backend_address_pool.Bckpool.id
-  ip_configuration_name   = "Config${count.index}"
+  ip_configuration_name   = "Config"
   network_interface_id    = azurerm_network_interface.nic[count.index].id
 }
 
@@ -55,7 +55,7 @@ resource "azurerm_lb_rule" "Lbrule" {
   protocol                       = "Tcp"
   frontend_port                  = 80
   backend_port                   = 80
-  frontend_ip_configuration_name = "publicIPAddress"
+  frontend_ip_configuration_name = "PublicIPAddress
   probe_id                       = azurerm_lb_probe.probe.id
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.Bckpool.id]
 }
