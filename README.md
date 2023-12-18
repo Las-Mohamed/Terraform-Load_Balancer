@@ -1,5 +1,8 @@
 # Terraform-Load_Balancer-Azure
+Infrastructure including 2 Clusters
 
-Simple Load Balancer with 2 Vm's running nginx container through custom data script.
+1 - The first is deploying an nginx server through Cloud-Init
 
-Secrets are stored in Key Vault. 
+2 - The second is deploying a Load Balancer with 2 Vm's running nginx container through custom data script.
+
+  -  Secrets are stored in Key Vault. 
