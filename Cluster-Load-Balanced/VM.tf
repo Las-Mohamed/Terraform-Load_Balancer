@@ -5,7 +5,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location                        = var.location
   size                            = "Standard_F2"
   admin_username                  = "adminuser"
-  admin_password                  = azurerm_key_vault_secret.vm_password.value
+  admin_password                  = var.Admin_Password
   computer_name                   = "nginx"
   custom_data = base64encode(file("../Cluster/init.sh"))
   #availability_set_id            = azurerm_availability_set.avset.id
@@ -28,5 +28,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
   depends_on = [ 
     azurerm_resource_group.rg,
     azurerm_network_interface.nic,
-    azurerm_key_vault_secret.vm_password ]
+  ]
 }
