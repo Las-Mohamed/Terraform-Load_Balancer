@@ -9,3 +9,7 @@ module "Cloud-Init" {
     source = "../Cloud-Init"
     location = "westeurope"
 }
+
+#module "Web-App" {
+#    source = "../Web-App"
+#}
