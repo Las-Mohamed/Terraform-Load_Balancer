@@ -1,4 +1,4 @@
-# Terraform-Load_Balancer-Azure
+# Terraform Azure Infrastructure
 Infrastructure including 2 Clusters and a Web App
 
 1 - The first is deploying an nginx server through Cloud-Init
