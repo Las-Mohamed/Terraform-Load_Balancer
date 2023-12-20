@@ -14,7 +14,7 @@ resource "azurerm_linux_web_app" "app_service" {
 
   site_config {
     always_on = true
-  # Use container already builted instead of letting Azure build from your app code ---- > many errors during the build
+  # Use container already built instead of letting Azure build from your app code ---- > many errors during the build
   # WARNING : AZURE WEB APP EXPOSE AUTOMATICALLY & ONLY PORT 80 & 443 or use Cli command (az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=<port_number>) 
     application_stack {
       docker_image     = "appsvcsample/python-helloworld"
