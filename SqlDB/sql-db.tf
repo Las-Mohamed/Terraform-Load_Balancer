@@ -43,3 +43,11 @@ resource "azurerm_mssql_database" "sql_db" {
 #    prevent_destroy = true
 #  }
 }
+
+# The firewal rules will allow access to the database from a specific IP
+resource "azurerm_mssql_firewall_rule" "firewall_rules" {
+  name             = "FirewallRule1"
+  server_id        = azurerm_mssql_server.sql_srv.id
+  start_ip_address = "Ip"
+  end_ip_address   = "Ip"
+}
