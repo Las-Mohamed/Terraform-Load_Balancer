@@ -1,5 +1,5 @@
 # Terraform Azure Infrastructure
-Infrastructure including 2 Clusters and a Web App
+Infrastructure including 2 Clusters, a Web App an a SQL Database/Server
 
 1 - The first is deploying an nginx server through Cloud-Init
 
@@ -8,3 +8,5 @@ Infrastructure including 2 Clusters and a Web App
   -  Secrets are stored in Key Vault.
 
 3 - Web App to implement with code
+
+4 - SQL database with SQL server accessible from SSMS
