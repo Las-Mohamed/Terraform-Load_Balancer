@@ -3,7 +3,7 @@
 # Put your domain name in "name"
 resource "azurerm_dns_zone" "dns" {
   resource_group_name   = azurerm_resource_group.rg-Cloud-Init.name
-  name                  = "Coud-init-test-last.com"
+  name                  = "<your_domain_name>"
   }
 
 output "server_names" {
