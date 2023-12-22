@@ -19,7 +19,9 @@ resource "azurerm_public_ip" "Cloud-init-IP" {
   resource_group_name = azurerm_resource_group.rg-Cloud-Init.name
   allocation_method = "Static"
   sku = "Standard"
-
+  # Create a domain name managed by Azure 
+  domain_name_label = "last-init-test"
+  
   depends_on = [azurerm_resource_group.rg-Cloud-Init]
 }
 
