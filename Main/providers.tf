@@ -11,5 +11,6 @@ terraform {
 }
 
 provider "azurerm" {
+# You can add your credentials here but the Best Practice is to use an external programm that will store your credentials - In this case Dl Azure CLI and authentificate
   features {}
 }
